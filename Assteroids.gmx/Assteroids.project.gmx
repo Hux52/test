@@ -22,6 +22,8 @@
     <sound>sound\aPlayerDeath3</sound>
     <sound>sound\aPlayerDeath4</sound>
     <sound>sound\aPlayerDeath5</sound>
+    <sound>sound\aMenu</sound>
+    <sound>sound\aGame</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sPlayer</sprite>
