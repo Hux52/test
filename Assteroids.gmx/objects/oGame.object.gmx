@@ -113,6 +113,10 @@ for (i = 0; i &lt; gamepad_get_device_count(); i++){
    }
    
 surface_resize(application_surface,room_width * 0.8, room_height * 0.8);
+
+// music
+// delay in order to give the program time to find an audio device
+musicDelay = 0;
 </string>
           </argument>
         </arguments>
@@ -189,8 +193,8 @@ if (keyboard_check_pressed(vk_f1)){
     global.Debug = !(global.Debug);
 }
 
-if (room = rGame){
-    
+if (room = rGame){    
+
     //increment spawn timer
     if (pause = false) spawnTimer += 1/room_speed;
     
@@ -299,12 +303,22 @@ if (showMenu){
     if (curSelect &gt;= ds_list_size(activeMenu)){
         curSelect = 0;
     }
+    // music start
+    if(musicDelay = 15){
+        audio_play_sound(aMenu, 0, true);
+    }
+    else if(musicDelay &lt; 30){
+        musicDelay++;
+    }
+    
+    //music end
     
     if (keyboard_check_pressed(vk_enter)){
         switch(activeMenu[|curSelect]){
         case "New Game":
             if (room = 0){
             room_goto(rGame);
+            audio_play_sound(aGame, 0, true);
             }
             else {
             room_restart();
